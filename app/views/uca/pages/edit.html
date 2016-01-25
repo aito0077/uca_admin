@@ -1,0 +1,96 @@
+<div class="page page-form">
+    <div class="row ui-section" data-ng-controller="pages-edit">
+        <div class="col-lg-8 clearfix">
+            <h2 class="section-header" ng-if="page.id">Editando {{page.title}}</h2>
+            <h2 class="section-header" ng-if="!page.id">Nueva Página</h2>
+        </div>
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form name="page_form" class="form-validation" novalidate data-ng-submit="submitForm()">
+                        <div class="form-group">
+                            <label for="">Título</label>
+                            <input  type="text" class="form-control" required data-ng-model="page.title" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Es Página Principal?</label>
+                            <md-switch name="is_home" class="md-primary" ng-model="page.is_home" aria-label="is_home" ng-true-value="true" ng-false-value="false" > {{ page.is_home ? 'SI' : 'NO'}} </md-switch>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Descripción</label>
+                            <textarea class="form-control" rows="10" data-ng-model="page.description"></textarea>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" required data-ng-model="page.why_title" placeholder="Por qué?" >
+                            <textarea class="form-control" rows="5" data-ng-model="page.why_body"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" required data-ng-model="page.how_title" placeholder="Cómo?" >
+                            <textarea class="form-control" rows="5" data-ng-model="page.how_body"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" required data-ng-model="page.what_title" placeholder="Qué?">
+                            <textarea class="form-control" rows="5" data-ng-model="page.what_body"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" required data-ng-model="page.who_title" placeholder="Quién?">
+                            <textarea class="form-control" rows="5" data-ng-model="page.who_body"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Detalles</label>
+                            <textarea class="form-control" rows="10" data-ng-model="page.details"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Twitter Link</label>
+                            <input  type="text" class="form-control" data-ng-model="page.twitter_link" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Facebook Link</label>
+                            <input  type="text" class="form-control" data-ng-model="page.facebook_link" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Instagram Link</label>
+                            <input  type="text" class="form-control" data-ng-model="page.instagram_link" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Usuario Instagram</label>
+                            <input  type="text" class="form-control" data-ng-model="page.instagram_username" >
+                        </div>
+                        <div class="form-group">
+                            <label for="">Hashtag Instagram</label>
+                            <input  type="text" class="form-control" data-ng-model="page.instagram_hashtag" >
+                        </div>
+                        <div class="form-group">
+                            <label for="">Twitter Widget Id</label>
+                            <input  type="text" class="form-control" data-ng-model="page.twitter_hashtag" >
+                        </div>
+
+
+
+                        <button type="submit"
+                                ui-wave
+                                class="btn btn-primary btn-w-md"
+                                data-ng-disabled="!canSubmit()"
+                                >Guardar</button>
+                        <button class="btn btn-default btn-w-md"
+                                ui-wave
+                                data-ng-click="revert()"
+                        >Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
