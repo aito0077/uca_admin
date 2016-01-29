@@ -9,7 +9,7 @@
         </li>
         <li ui-wave><a href="#/dashboard"> <i class="imd imd-home"></i><span data-translate="Home"></span> </a></li>
         <li ng-if="hasRole('edit_site')" ui-wave><a href="#/uca/pages/list"> <i class="imd imd-home"></i><span data-translate="Páginas"></span> </a></li>
-        <li ng-if="hasRole('create_center')" ui-wave><a href="#/uca/organizations/list"> <i class="imd imd-place"></i><span data-translate="Muestras"></span> </a></li>
+        <li ng-if="hasRole('crud_organization')" ui-wave><a href="#/uca/organizations/list"> <i class="imd imd-place"></i><span data-translate="Muestras"></span> </a></li>
         <li ng-if="hasRole('crud_user')" ui-wave><a href="#/uca/users/list"> <i class="imd imd-contacts"></i><span data-translate="Usuarios"></span> </a></li>
 
     </ul>

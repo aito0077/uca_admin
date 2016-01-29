@@ -24,10 +24,14 @@
                     <tbody>
                         <tr data-ng-repeat="organization in organizations" style="color:{{organization.color}}" >
                             <td>{{organization.name}}</td>
-                            <td></td>
                             <td>
+                                <img ng-src="http://images.collab-dev.com/100x100/smart/uca/{{organization.main_picture}}" class="img-rounded img-responsive center-block">
+                            </td>
+                            <td class="text-right">
                                 <span class="btn btn-primary" ng-click="view(organization.id)">Ver</span>
                                 <span class="btn btn-default" ng-click="edit(organization.id)">Editar</span>
+                                <span ng-if="!organization.remark" class="btn btn-success" ng-click="remark(organization.id)">Marcar</span>
+                                <span ng-if="organization.remark" class="btn btn-danger" ng-click="unremark(organization.id)">Desmarcar</span>
                             </td>
                         </tr>
                     </tbody>

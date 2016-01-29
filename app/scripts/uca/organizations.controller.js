@@ -45,6 +45,17 @@ angular.module('app.organizations')
         $scope.organization = new Organization({});
     };
 
+    $scope.remove = function() {
+        $scope.organization.$delete(function() {
+            logger.logSuccess("Se eliminó la muestra"); 
+            $state.go('organization-list'); 
+        }).catch(function(response) {
+            logger.logError(response.message); 
+        });
+    };
+
+
+
     $scope.submitForm = function() {
         if($scope.organization.id) {
             $scope.organization.$update(function() {
@@ -113,7 +124,7 @@ angular.module('app.organizations')
 
 
 }])
-.controller('organizations-list', ['$scope', '$http', '$state', 'api_host', 'Organization', function($scope, $http, $state, api_host, Organization) {
+.controller('organizations-list', ['$scope', '$http', '$state', 'api_host', 'Organization', 'logger', function($scope, $http, $state, api_host, Organization, logger) {
    
     Organization.query(function(data) {
         $scope.organizations = data;
@@ -131,6 +142,30 @@ angular.module('app.organizations')
             organizationId: id
         }); 
     };
+
+    $scope.remark = function(id) {
+        $http.post(api_host+'/api/organization/'+id+'/remark', {
+
+        }).success(function(data) {
+            logger.logSuccess("Se marcó como importante la muestra"); 
+            Organization.query(function(data) {
+                $scope.organizations = data;
+            });
+
+        });
+    };
+
+    $scope.unremark = function(id) {
+        $http.post(api_host+'/api/organization/'+id+'/unremark', {
+
+        }).success(function(data) {
+            logger.logSuccess("Se desmarcó como importante la muestra"); 
+            Organization.query(function(data) {
+                $scope.organizations = data;
+            });
+        });
+    };
+
 
 
 

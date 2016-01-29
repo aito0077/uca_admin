@@ -51,6 +51,13 @@
                     loginRequired: loginRequired
                 }
             })
+            .state('organization-list', {
+                url: '/organization/list',
+                templateUrl: 'views/uca/organizations/list.html',
+                resolve: {
+                    loginRequired: loginRequired
+                }
+            })
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'views/dashboard.html',
